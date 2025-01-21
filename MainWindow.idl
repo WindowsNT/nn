@@ -1,0 +1,11 @@
+namespace NN
+{
+    [default_interface]
+    runtimeclass MainWindow : Microsoft.UI.Xaml.Window
+    {
+        static String txt(Int32 sidx);
+        MainWindow();
+        void Resize();
+        void Refresh();
+    }
+}

@@ -1,0 +1,10 @@
+namespace NN
+{
+    [default_interface]
+    runtimeclass Network : Microsoft.UI.Xaml.Controls.Page, Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        static String txt(Int32 sidx);
+        Network();
+        void Refresh();
+    }
+}

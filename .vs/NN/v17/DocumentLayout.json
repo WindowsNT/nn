@@ -1,0 +1,179 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\WUITOOLS\\NN\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\nn.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:nn.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Windows Kits\\10\\Source\\10.0.26100.0\\ucrt\\internal\\report_runtime_error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\atlmfc\\include\\atlcomcli.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\App.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:App.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\linker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:linker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\Network.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:Network.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\MainWindow.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:MainWindow.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\func.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:func.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "report_runtime_error.cpp",
+              "DocumentMoniker": "C:\\Windows Kits\\10\\Source\\10.0.26100.0\\ucrt\\internal\\report_runtime_error.cpp",
+              "ToolTip": "C:\\Windows Kits\\10\\Source\\10.0.26100.0\\ucrt\\internal\\report_runtime_error.cpp",
+              "ViewState": "AgIAABAAAAAAAAAAAAAWwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-21T16:22:05.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "atlcomcli.h",
+              "DocumentMoniker": "C:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\atlmfc\\include\\atlcomcli.h",
+              "ToolTip": "C:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\atlmfc\\include\\atlcomcli.h",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAWwMsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-21T14:30:33.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "nn.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\nn.cpp",
+              "RelativeDocumentMoniker": "nn.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\nn.cpp",
+              "RelativeToolTip": "nn.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-21T14:27:57.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "linker.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\linker.cpp",
+              "RelativeDocumentMoniker": "linker.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\linker.cpp",
+              "RelativeToolTip": "linker.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-21T12:14:45.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "pch.h",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\pch.h",
+              "RelativeDocumentMoniker": "pch.h",
+              "ToolTip": "F:\\WUITOOLS\\NN\\pch.h",
+              "RelativeToolTip": "pch.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-21T12:11:34.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\App.xaml.cpp",
+              "RelativeDocumentMoniker": "App.xaml.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\App.xaml.cpp",
+              "RelativeToolTip": "App.xaml.cpp",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAWwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-19T11:01:18.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainWindow.xaml.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\MainWindow.xaml.cpp",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\MainWindow.xaml.cpp",
+              "RelativeToolTip": "MainWindow.xaml.cpp",
+              "ViewState": "AgIAACMAAAAAAAAAAADgvzYAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-18T07:19:09.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Network.xaml.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\Network.xaml.cpp",
+              "RelativeDocumentMoniker": "Network.xaml.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\Network.xaml.cpp",
+              "RelativeToolTip": "Network.xaml.cpp",
+              "ViewState": "AgIAACAAAAAAAAAAAAAvwEMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-18T07:18:22.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "func.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\func.cpp",
+              "RelativeDocumentMoniker": "func.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\func.cpp",
+              "RelativeToolTip": "func.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-18T07:14:55.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "F:\\WUITOOLS\\NN\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-18T07:13:33.03Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
