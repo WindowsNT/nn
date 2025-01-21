@@ -26,4 +26,7 @@ del nn\x64\* /s /q
 f:\tools\tu8\uploader\uploader SmallTools
 msbuild nn.sln -target:Clean
 
+git add *
+git commit -m "Update"
+git push
 
