@@ -7,12 +7,15 @@
       "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:nn.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\WUITOOLS\\NN\\matrix2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:matrix2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\WUITOOLS\\NN\\nnold.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:nnold.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Windows Kits\\10\\Source\\10.0.26100.0\\ucrt\\internal\\report_runtime_error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\WUITOOLS\\NN\\matrix2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:matrix2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\WUITOOLS\\NN\\Readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
@@ -50,7 +53,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -59,18 +62,29 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "report_runtime_error.cpp",
+              "DocumentMoniker": "C:\\Windows Kits\\10\\Source\\10.0.26100.0\\ucrt\\internal\\report_runtime_error.cpp",
+              "ToolTip": "C:\\Windows Kits\\10\\Source\\10.0.26100.0\\ucrt\\internal\\report_runtime_error.cpp",
+              "ViewState": "AgIAABAAAAAAAAAAAAAWwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-22T07:08:55.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "nnold.hpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\nnold.hpp",
               "RelativeDocumentMoniker": "nnold.hpp",
               "ToolTip": "F:\\WUITOOLS\\NN\\nnold.hpp",
               "RelativeToolTip": "nnold.hpp",
-              "ViewState": "AgIAAFACAAAAAAAAAAAswH0CAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAO0CAAAAAAAAAAAAAB8DAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-21T18:45:19.433Z"
+              "WhenOpened": "2025-01-21T18:45:19.433Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "matrix2.hpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\matrix2.hpp",
               "RelativeDocumentMoniker": "matrix2.hpp",
@@ -88,14 +102,14 @@
               "RelativeDocumentMoniker": "nn.cpp",
               "ToolTip": "f:\\WUITOOLS\\NN\\nn.cpp",
               "RelativeToolTip": "nn.cpp",
-              "ViewState": "AgIAAPkDAAAAAAAAAAAmwBMEAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFgFAAAAAAAAAAAvwG8FAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-21T17:22:32.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": ".gitignore",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -107,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Readme.md",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\Readme.md",
               "RelativeDocumentMoniker": "Readme.md",
@@ -119,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "App.xaml.cpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\App.xaml.cpp",
               "RelativeDocumentMoniker": "App.xaml.cpp",
@@ -131,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml.cpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\MainWindow.xaml.cpp",
               "RelativeDocumentMoniker": "MainWindow.xaml.cpp",
@@ -143,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Network.xaml.cpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\Network.xaml.cpp",
               "RelativeDocumentMoniker": "Network.xaml.cpp",
@@ -155,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "func.cpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\func.cpp",
               "RelativeDocumentMoniker": "func.cpp",
@@ -167,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
