@@ -3,23 +3,20 @@
   "WorkspaceRootPath": "F:\\WUITOOLS\\NN\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|f:\\WUITOOLS\\NN\\nn.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\nn.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:nn.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\Network.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:Network.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\python.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:python.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|f:\\WUITOOLS\\NN\\onnxexport.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:onnxexport.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\NN.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:NN.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|f:\\WUITOOLS\\NN\\Network.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:Network.xaml.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\Network.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -34,8 +31,11 @@
       "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:Network.xaml.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|F:\\WUITOOLS\\NN\\Network.idl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:Network.idl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|f:\\WUITOOLS\\NN\\onnxexport.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4610BCC0-EAD5-41A1-B0DD-621C9EBE27E1}|NN.vcxproj|solutionrelative:onnxexport.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\WUITOOLS\\NN\\mlbuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -87,29 +87,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "vector",
-              "DocumentMoniker": "c:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\include\\vector",
-              "ToolTip": "c:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\include\\vector",
-              "ViewState": "AgIAAFAHAAAAAAAAAAAawF8HAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-01-25T19:55:19.372Z",
+              "Title": "nn.h",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\nn.h",
+              "RelativeDocumentMoniker": "nn.h",
+              "ToolTip": "F:\\WUITOOLS\\NN\\nn.h",
+              "RelativeToolTip": "nn.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-25T20:24:58.515Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "python.cpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\python.cpp",
               "RelativeDocumentMoniker": "python.cpp",
               "ToolTip": "F:\\WUITOOLS\\NN\\python.cpp",
               "RelativeToolTip": "python.cpp",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAqwDoAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAFQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T19:15:37.43Z"
+              "WhenOpened": "2025-01-25T19:15:37.43Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "onnxexport.py",
               "DocumentMoniker": "f:\\WUITOOLS\\NN\\onnxexport.py",
               "RelativeDocumentMoniker": "onnxexport.py",
@@ -121,13 +124,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Network.xaml.cpp",
-              "DocumentMoniker": "F:\\WUITOOLS\\NN\\Network.xaml.cpp",
+              "DocumentMoniker": "f:\\WUITOOLS\\NN\\Network.xaml.cpp",
               "RelativeDocumentMoniker": "Network.xaml.cpp",
-              "ToolTip": "F:\\WUITOOLS\\NN\\Network.xaml.cpp",
+              "ToolTip": "f:\\WUITOOLS\\NN\\Network.xaml.cpp",
               "RelativeToolTip": "Network.xaml.cpp",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAvwMMAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAALcAAAAAAAAAAAAvwM4AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-25T10:40:45.394Z",
               "EditorCaption": ""
@@ -136,11 +139,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "nn.cpp",
-              "DocumentMoniker": "f:\\WUITOOLS\\NN\\nn.cpp",
+              "DocumentMoniker": "F:\\WUITOOLS\\NN\\nn.cpp",
               "RelativeDocumentMoniker": "nn.cpp",
-              "ToolTip": "f:\\WUITOOLS\\NN\\nn.cpp",
+              "ToolTip": "F:\\WUITOOLS\\NN\\nn.cpp",
               "RelativeToolTip": "nn.cpp",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAvwLUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-24T19:01:03.935Z",
               "EditorCaption": ""
@@ -156,18 +159,6 @@
               "ViewState": "AgIAACAAAAAAAAAAAAAawC8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-25T15:50:38.888Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Network.idl",
-              "DocumentMoniker": "F:\\WUITOOLS\\NN\\Network.idl",
-              "RelativeDocumentMoniker": "Network.idl",
-              "ToolTip": "F:\\WUITOOLS\\NN\\Network.idl",
-              "RelativeToolTip": "Network.idl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000564|",
-              "WhenOpened": "2025-01-25T15:12:48.24Z"
             },
             {
               "$type": "Document",
@@ -195,15 +186,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "en.hpp",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\en.hpp",
               "RelativeDocumentMoniker": "en.hpp",
               "ToolTip": "F:\\WUITOOLS\\NN\\en.hpp",
               "RelativeToolTip": "en.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T15:52:48.506Z"
+              "WhenOpened": "2025-01-25T15:52:48.506Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -241,27 +233,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Network.xaml",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\Network.xaml",
               "RelativeDocumentMoniker": "Network.xaml",
               "ToolTip": "F:\\WUITOOLS\\NN\\Network.xaml",
               "RelativeToolTip": "Network.xaml",
-              "ViewState": "AgIAACUAAAAAAAAAAAAswDcAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-25T19:00:27.333Z"
+              "WhenOpened": "2025-01-25T19:00:27.333Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Network.xaml.h",
               "DocumentMoniker": "F:\\WUITOOLS\\NN\\Network.xaml.h",
               "RelativeDocumentMoniker": "Network.xaml.h",
               "ToolTip": "F:\\WUITOOLS\\NN\\Network.xaml.h",
               "RelativeToolTip": "Network.xaml.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-25T15:13:12.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "vector",
+              "DocumentMoniker": "C:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\include\\vector",
+              "ToolTip": "C:\\vs\\VC\\Tools\\MSVC\\14.42.34433\\include\\vector",
+              "ViewState": "AgIAAFAHAAAAAAAAAAAawF8HAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-25T19:55:19.372Z"
             },
             {
               "$type": "Document",

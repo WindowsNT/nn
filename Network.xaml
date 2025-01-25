@@ -50,6 +50,11 @@
                         <KeyboardAccelerator Key="S" Modifiers="Control,Shift"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="{x:Bind txt(19),Mode=OneTime}" Click="OnExportONNX" >
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE792;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="DebugGenerateMnistR" Click="OnDebugGenMnist" >
                 </MenuFlyoutItem>

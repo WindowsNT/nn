@@ -58,6 +58,7 @@ namespace winrt::NN::implementation
         void OnTrainGPU(IInspectable, IInspectable);
         void Train_Cancel(IInspectable, IInspectable);
         void OnDebugGenMnist(IInspectable, IInspectable);
+		void OnExportONNX(IInspectable, IInspectable);
         
     };
 }

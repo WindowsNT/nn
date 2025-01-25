@@ -16,7 +16,7 @@ L"Output",
 L"Hidden",
 L"Layer",
 L"File",
-L"Export",
+L"Export ONNX",
 };
 
 #define MAX_LANG 19

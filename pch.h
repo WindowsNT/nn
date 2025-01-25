@@ -74,3 +74,17 @@
 #include "xml3all.h"
 
 #include <tclap/Arg.h>
+
+template <typename T = char>
+inline bool PutFile(const wchar_t* f, std::vector<T>& d, bool Fw = false)
+{
+	HANDLE hX = CreateFile(f, GENERIC_WRITE, 0, 0, Fw ? CREATE_ALWAYS : CREATE_NEW, 0, 0);
+	if (hX == INVALID_HANDLE_VALUE)
+		return false;
+	DWORD A = 0;
+	WriteFile(hX, d.data(), (DWORD)(d.size() * sizeof(T)), &A, 0);
+	CloseHandle(hX);
+	if (A != d.size())
+		return false;
+	return true;
+}

@@ -4,6 +4,8 @@
 #include "Network.g.cpp"
 #endif
 
+
+
 using namespace winrt;
 using namespace winrt::Microsoft::UI::Xaml;
 using namespace winrt::Microsoft::UI::Xaml::Controls;
@@ -13,6 +15,8 @@ extern std::wstring fil;
 
 
 #include "nn.h"
+void NNToPythonOnnx(::NN&);
+
 extern int CurrentBatch;
 extern int NumEpochsX;
 extern PROJECT project;
@@ -196,6 +200,11 @@ namespace winrt::NN::implementation
         fil = fnx.data();
         LoadNetworkFile();
     	Refresh();
+    }
+
+    void Network::OnExportONNX(IInspectable, IInspectable)
+    {
+		NNToPythonOnnx(project.nn);
     }
 
      void Network::OnNew(IInspectable, IInspectable)

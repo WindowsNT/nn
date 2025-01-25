@@ -1,51 +1,80 @@
 #include "pch.h"
 #include "nn.h"
 
+std::wstring TempFile3();
 
-void NNToPythonOnnx()
+void NNToPythonOnnx(NN& nn)
 {
-	const char* onnx = R"(
+
+	std::string pyf;
+	std::vector<char> d(10000);
+
+	pyf += R"(
 import torch
 import torch.nn as nn
 import torch.onnx
+import numpy as np
 
-# Step 1: Define the PyTorch Model
 class SimpleModel(nn.Module):
-    def __init__(self):
-        super(SimpleModel, self).__init__()
-        self.fc1 = nn.Linear(784, 128)  # Input: 784, Hidden: 128
-        self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(128, 10)  # Output: 10 classes
 
     def forward(self, x):
         x = self.relu(self.fc1(x))
         x = self.fc2(x)
         return x
 
-# Instantiate the PyTorch model
-model = SimpleModel()
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.relu = nn.ReLU()
 
-# Step 2: Manually Assign Weights and Biases from NN Class
-# Assuming `NN` class stores weights and biases as numpy arrays
-import numpy as np
+)";
 
-# Replace these with the actual weights/biases from your NN class
-fc1_weights = torch.tensor(np.random.randn(128, 784), dtype=torch.float32)  # Replace with NN weights
-fc1_biases = torch.tensor(np.random.randn(128), dtype=torch.float32)        # Replace with NN biases
-fc2_weights = torch.tensor(np.random.randn(10, 128), dtype=torch.float32)   # Replace with NN weights
-fc2_biases = torch.tensor(np.random.randn(10), dtype=torch.float32)         # Replace with NN biases
+	// Input layer
+	auto& inputLayer = nn.Layers[1];
+	for (int i = 1; i < nn.Layers.size(); i++)
+	{
+		auto& ly = nn.Layers[i];
+		sprintf_s(d.data(), 10000, "        self.fc%i = nn.Linear(%i,%i)\r\n", i,ly.weights.rows(), ly.weights.cols());
+		pyf += d.data();
+	}
 
-# Assign the weights and biases to the model
-with torch.no_grad():  # Avoid tracking gradients when assigning weights
-    model.fc1.weight = nn.Parameter(fc1_weights)
-    model.fc1.bias = nn.Parameter(fc1_biases)
-    model.fc2.weight = nn.Parameter(fc2_weights)
-    model.fc2.bias = nn.Parameter(fc2_biases)
+	pyf += "\r\n\r\n";
+	pyf += R"(model = SimpleModel())";
+	pyf += "\r\n";
+	pyf += R"(with torch.no_grad() :)";
+	pyf += "\r\n";
 
-# Step 3: Export the Model to ONNX
-model.eval()  # Set to evaluation mode
-dummy_input = torch.randn(1, 784)  # Example input tensor (batch size = 1)
+	for (int i = 1; i < nn.Layers.size(); i++)
+	{
+		auto& ly = nn.Layers[i];
 
+
+		ystring te = TempFile3();
+		PutFile<float>(te.c_str(), ly.weights.data(),true);
+		for (auto& t : te)
+		{
+			if (t == '\\')
+				t = '/';
+		}
+		sprintf_s(d.data(), 10000, "    model.fc%i.weight = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i, %i), dtype=torch.float32))\r\n",  i, te.a_str(), ly.weights.cols(), ly.weights.rows());
+		pyf += d.data();
+
+
+		te = TempFile3();
+		PutFile<float>(te.c_str(), ly.biases.data(), true);
+		for (auto& t : te)
+		{
+			if (t == '\\')
+				t = '/';
+		}
+		sprintf_s(d.data(), 10000, "    model.fc%i.bias = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i), dtype=torch.float32))\r\n", i, te.a_str(), ly.biases.cols());
+		pyf += d.data();
+
+	}
+
+	sprintf_s(d.data(), 10000, "model.eval()\r\ndummy_input = torch.randn(1, %i)",nn.Layers[1].weights.rows());
+	pyf += d.data();
+
+	pyf += R"(
 onnx_file_path = "custom_nn_model.onnx"
 torch.onnx.export(
     model,                  # The PyTorch model
@@ -61,11 +90,12 @@ torch.onnx.export(
     }
 )
 
-print(f"ONNX model saved to {onnx_file_path}")
-
 )";
 
 
+//	std::ofstream of("g:\\python\\nn.py");
+//	of << pyf;
+//	of.close();
 }
 
 //
@@ -80,19 +110,6 @@ std::wstring TempFile3();
 #include "zip.c"
 
 
-template <typename T = char>
-inline bool PutFile(const wchar_t* f, std::vector<T>& d, bool Fw = false)
-{
-	HANDLE hX = CreateFile(f, GENERIC_WRITE, 0, 0, Fw ? CREATE_ALWAYS : CREATE_NEW, 0, 0);
-	if (hX == INVALID_HANDLE_VALUE)
-		return false;
-	DWORD A = 0;
-	WriteFile(hX, d.data(), (DWORD)(d.size() * sizeof(T)), &A, 0);
-	CloseHandle(hX);
-	if (A != d.size())
-		return false;
-	return true;
-}
 
 
 std::wstring TempFile3()
