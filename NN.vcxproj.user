@@ -11,22 +11,19 @@
     <DebuggerFlavor>WindowsDeviceDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <CommandLineArgs>
-    </CommandLineArgs>
-    <DebuggerFlavor>WindowsDeviceDebugger</DebuggerFlavor>
+    <CommandLineArgs>mnist.mm</CommandLineArgs>
+    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <CommandLineArgs>
-    </CommandLineArgs>
-    <DebuggerFlavor>WindowsDeviceDebugger</DebuggerFlavor>
+    <CommandLineArgs>mnist.mm</CommandLineArgs>
+    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <CommandLineArgs>r:\mnist.nn</CommandLineArgs>
+    <CommandLineArgs>f:\wuitools\nn\mnist.nn</CommandLineArgs>
     <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <CommandLineArgs>
-    </CommandLineArgs>
-    <DebuggerFlavor>WindowsDeviceDebugger</DebuggerFlavor>
+    <CommandLineArgs>f:\wuitools\nn\mnist.nn</CommandLineArgs>
+    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
