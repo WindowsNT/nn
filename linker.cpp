@@ -5,6 +5,7 @@
 #pragma comment(lib,"dxgi.lib")
 
 #pragma comment(lib, "dwmapi.lib")
+#pragma comment(lib, "wininet.lib")
 #pragma comment(lib, "gdi32.lib")
 #pragma comment(lib, "comdlg32.lib")
 #pragma comment(lib, "msimg32.lib")

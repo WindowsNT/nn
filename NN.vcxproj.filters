@@ -18,6 +18,7 @@
     <ClCompile Include="func.cpp" />
     <ClCompile Include="nn.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="python.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -51,6 +52,9 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{4610bcc0-ead5-41a1-b0dd-621c9ebe27e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Python">
+      <UniqueIdentifier>{b6319749-b11c-4c75-a58c-b5070137878f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
@@ -63,6 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="onnxexport.py">
+      <Filter>Python</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />

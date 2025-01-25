@@ -13,6 +13,8 @@ extern std::wstring fil;
 
 
 #include "nn.h"
+extern int CurrentBatch;
+extern int NumEpochsX;
 extern PROJECT project;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -88,6 +90,23 @@ namespace winrt::NN::implementation
 			children.Append(item);
         }
 		return children;
+    }
+
+    double Network::BatchNumber()
+    {
+        return (double)CurrentBatch;
+    }
+    void Network::BatchNumber(double v)
+    {
+		CurrentBatch = (int)v;
+    }
+    double Network::NumEpochs()
+    {
+        return (double)NumEpochsX;
+    }
+    void Network::NumEpochs(double v)
+    {
+        NumEpochsX = (int)v;
     }
 
     double Network::LearningRate()

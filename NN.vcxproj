@@ -161,6 +161,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="python.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Item.idl" />
@@ -196,6 +197,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="onnxexport.py" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

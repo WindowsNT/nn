@@ -9,12 +9,14 @@ L"Open",
 L"Save",
 L"Save as",
 L"Train",
-L"CPU",
-L"GPU",
+L"Train in CPU",
+L"Train in GPU",
 L"Input",
 L"Output",
 L"Hidden",
 L"Layer",
+L"File",
+L"Export",
 };
 
-#define MAX_LANG 17
+#define MAX_LANG 19

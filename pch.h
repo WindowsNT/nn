@@ -2,6 +2,7 @@
 #pragma once
 #include <windows.h>
 #include <unknwn.h>
+#include <wininet.h>
 #include <restrictederrorinfo.h>
 #include <hstring.h>
 #include <queue>
@@ -14,6 +15,7 @@
 #include <functional>
 #include <memory>
 #include <vector>
+#include <shlobj.h>
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -30,6 +32,8 @@
 #include "d3dx12.h"
 #include ".\\packages\\Microsoft.AI.DirectML.1.15.4\\include\\DirectML.h"
 #include "DirectMLX.h"
+
+#include "ystring.h"
 
 #include <random>
 #undef min

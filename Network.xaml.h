@@ -36,6 +36,10 @@ namespace winrt::NN::implementation
         bool ActFuncVisible();
         double LearningRate();
         void LearningRate(double);
+        double BatchNumber();
+        void BatchNumber(double);
+        double NumEpochs();
+        void NumEpochs(double);
         long  IndexOfLayer();
         void IndexOfLayer(long);
         winrt::Windows::Foundation::Collections::IObservableVector<winrt::NN::Item> LayerList();
