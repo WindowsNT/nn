@@ -17,6 +17,7 @@ extern int CurrentBatch;
 extern int NumEpochsX;
 extern PROJECT project;
 
+void LoadNetworkFile();
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -139,6 +140,8 @@ namespace winrt::NN::implementation
 			if (project.nn.Layers[i].Sel)
 				return (long)i;
 		}
+        if (project.nn.Layers.empty())
+            return 0;
         project.nn.Layers[0].Sel = 1;
 		return 0;
 	}
@@ -177,8 +180,24 @@ namespace winrt::NN::implementation
 
     void Network::OnOpen(IInspectable, IInspectable)
     {
+//        f:\wuitools\nn\mnist.nn
 
+		OPENFILENAME of = { 0 };
+		of.lStructSize = sizeof(of);
+		of.hwndOwner = (HWND)0;
+		of.lpstrFilter = L"*.nn\0*.nn\0\0";
+		std::vector<wchar_t> fnx(10000);
+		of.lpstrFile = fnx.data();
+		of.nMaxFile = 10000;
+		of.lpstrDefExt = L"nn";
+		of.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+		if (!GetOpenFileName(&of))
+			return;
+        fil = fnx.data();
+        LoadNetworkFile();
+    	Refresh();
     }
+
      void Network::OnNew(IInspectable, IInspectable)
     {
          std::vector<wchar_t> a(10000);
