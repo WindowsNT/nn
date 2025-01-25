@@ -41,6 +41,37 @@ namespace winrt::NN::implementation
 
     }
 
+    long  Network::IndexOfAct()
+    {
+        for (size_t i = 0; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+                return project.nn.Layers[i].ActType;
+        }
+        return 0;
+    }
+    void Network::IndexOfAct(long l)
+    {
+        for (size_t i = 0; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+                project.nn.Layers[i].ActType = l;
+        }
+    }
+
+    winrt::Windows::Foundation::Collections::IObservableVector<winrt::NN::Item> Network::ActList()
+    {
+        auto children = single_threaded_observable_vector<NN::Item>();
+        auto item = winrt::make<NN::implementation::Item>();
+        item.Name1(L"Sigmoid");
+        children.Append(item);
+        item = winrt::make<NN::implementation::Item>();
+        item.Name1(L"Relu");
+        children.Append(item);
+        return children;
+    }
+
+
     winrt::Windows::Foundation::Collections::IObservableVector<winrt::NN::Item> Network::LayerList()
     {
         auto children = single_threaded_observable_vector<NN::Item>();
@@ -48,10 +79,10 @@ namespace winrt::NN::implementation
         {
 			auto item = winrt::make<NN::implementation::Item>();
             if (i == 0)
-				item.Name1(s(14));
+				item.Name1(std::wstring(s(14)) + std::wstring(L" ") + std::wstring(s(17)));
             else
             if (i == (project.nn.Layers.size() - 1))
-                item.Name1(s(15));
+                item.Name1(std::wstring(s(15)) + std::wstring(L" ") + std::wstring(s(17)));
             else
                 item.Name1(std::wstring(s(16)) + std::wstring(L" ") + std::to_wstring(i));
 			children.Append(item);
@@ -59,16 +90,71 @@ namespace winrt::NN::implementation
 		return children;
     }
 
+    double Network::LearningRate()
+    {
+        for (size_t i = 1; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+                return project.nn.Layers[i].lr;
+
+        }
+        return 0;
+//        return std::numeric_limits<double>::quiet_NaN();;
+    }
+
+    void Network::LearningRate(double v)
+    {
+        for (size_t i = 1; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+				project.nn.Layers[i].lr = v;
+        }
+        return;
+    }
+
 
 	long Network::IndexOfLayer()
 	{
+		for (size_t i = 0; i < project.nn.Layers.size(); i++)
+		{
+			if (project.nn.Layers[i].Sel)
+				return (long)i;
+		}
+        project.nn.Layers[0].Sel = 1;
 		return 0;
 	}
 	void Network::IndexOfLayer(long idx)
 	{
-        nop();
+        for (size_t i = 0; i < project.nn.Layers.size(); i++)
+        {
+			if (i == idx)
+				project.nn.Layers[i].Sel = 1;
+			else
+				project.nn.Layers[i].Sel = 0;
+        }
+        Refresh({L"LearningRate",L"LearningRateVisible",L"ActFuncVisible",L"IndexOfAct"});
 	}
 
+
+	bool Network::LearningRateVisible()
+	{
+		for (size_t i = 1; i < project.nn.Layers.size(); i++)
+		{
+			if (project.nn.Layers[i].Sel)
+				return 1;
+		}
+		return 0;
+	}
+
+    bool Network::ActFuncVisible()
+    {
+        for (size_t i = 1; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+                return 1;
+        }
+        return 0;
+    }
 
     void Network::OnOpen(IInspectable, IInspectable)
     {

@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <e>
 	<network>
-		<Layer lr="0.001000" ActType="0">
-			<weights rows="0" cols="0" data=""/>
-			<weightsr rows="0" cols="0" data=""/>
-			<biases rows="0" cols="0" data=""/>
+		<Layer>
 		</Layer>
 		<Layer lr="0.001000" ActType="1">
 			<weights rows="784" cols="128" data="ZKjQu3Fr2bojgZQ7Lc7KuwrGg7vXfT+7AvI1uQPC5zqKwXi7thDcu1JzGLz3hVE6

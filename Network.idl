@@ -12,6 +12,10 @@ namespace NN
 
         Int32 IndexOfLayer;
         Windows.Foundation.Collections.IObservableVector<Item> LayerList{ get; };
-
+        Int32 IndexOfAct;
+        Windows.Foundation.Collections.IObservableVector<Item> ActList{ get; };
+        Double LearningRate;
+        Boolean LearningRateVisible{ get; };
+        Boolean ActFuncVisible{ get; } ;
     }
 }

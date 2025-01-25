@@ -76,15 +76,34 @@
             </MenuBarItem>
         </MenuBar>
 
-        <ComboBox Margin="10,0,0,0" x:Name="LayerList1" ItemsSource="{x:Bind LayerList,Mode=OneWay}" SelectedIndex="{x:Bind IndexOfLayer,Mode=TwoWay}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate  x:DataType="local:Item">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{x:Bind Name1}"  />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="10,5,20,0">Layer:</TextBlock>
+            <ComboBox Margin="10,0,10,0" x:Name="LayerList1" ItemsSource="{x:Bind LayerList,Mode=OneWay}" SelectedIndex="{x:Bind IndexOfLayer,Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate  x:DataType="local:Item">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{x:Bind Name1}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <StackPanel Orientation="Horizontal" Visibility="{x:Bind LearningRateVisible,Mode=OneWay}">
+            <TextBlock Margin="10,5,20,0">Learning rate:</TextBlock>
+            <NumberBox Margin="10,0,20,0" x:Name="LearningRate1" Text="{x:Bind LearningRate,Mode=TwoWay}" Width="100" Minimum="0.000" Maximum="1"></NumberBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Visibility="{x:Bind ActFuncVisible,Mode=OneWay}">
+                <TextBlock Margin="10,5,20,0">Activation:</TextBlock>
+                <ComboBox Margin="10,0,10,0" x:Name="ActList1" ItemsSource="{x:Bind ActList,Mode=OneWay}" SelectedIndex="{x:Bind IndexOfAct,Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate  x:DataType="local:Item">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{x:Bind Name1}"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
 
 
     </StackPanel>
