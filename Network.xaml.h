@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Network.g.h"
+#include "Item.h"
 
 namespace winrt::NN::implementation
 {
@@ -29,6 +30,11 @@ namespace winrt::NN::implementation
             const wchar_t* s(size_t);
             return s(jx);
         }
+
+
+        long  IndexOfLayer();
+        void IndexOfLayer(long);
+        winrt::Windows::Foundation::Collections::IObservableVector<winrt::NN::Item> LayerList();
 
 
 

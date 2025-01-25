@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="en.hpp" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Network.xaml.h">
       <DependentUpon>Network.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -143,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="func.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="linker.cpp" />
     <ClCompile Include="Network.xaml.cpp">
       <DependentUpon>Network.xaml</DependentUpon>
@@ -161,6 +163,7 @@
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Midl Include="Item.idl" />
     <Midl Include="MainWindow.idl">
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>

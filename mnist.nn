@@ -3,6 +3,7 @@
 	<network>
 		<Layer lr="0.001000" ActType="0">
 			<weights rows="0" cols="0" data=""/>
+			<weightsr rows="0" cols="0" data=""/>
 			<biases rows="0" cols="0" data=""/>
 		</Layer>
 		<Layer lr="0.001000" ActType="1">
@@ -8370,6 +8371,7 @@ JW6EuzjQdDvsfsQ6LpzFOhApzzuwzD47iUR0u2u0wLrmpBe63RSeOxSn7DmiWhO7
 HgfAuyogPTqJb5o7LfSUO66uqrsN6TQ6CGP+OxIom7vDH8m5yfzuO/YwAjuQBPo5
 3swROi8oRzvPniK750sEPDKNCDxReaG6wICQuSlUTbs=
 "/>
+			<weightsr rows="0" cols="0" data=""/>
 			<biases rows="1" cols="128" data="CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8
 CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8
 CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8
@@ -8492,6 +8494,7 @@ UaguPWE+rbwwVVI8bqf+PLLpy7s2rLA80IagvboGCT1aoD08CMWguh+iOz2yHUC9
 9EebPQpQhz2oFa28Us7zu7FwEDzKXoG8lP7SvNtGQb107Xe95KWbPCP7mr0TDEI8
 XPSNPd3d9Lu1PYq8LbYXvR4PJ70kcrc8VFatPFVvrT0=
 "/>
+			<weightsr rows="0" cols="0" data=""/>
 			<biases rows="1" cols="10" data="CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPA==
 "/>
 		</Layer>

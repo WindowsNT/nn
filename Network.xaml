@@ -75,6 +75,17 @@
                 <MenuFlyoutSeparator/>
             </MenuBarItem>
         </MenuBar>
-        
+
+        <ComboBox Margin="10,0,0,0" x:Name="LayerList1" ItemsSource="{x:Bind LayerList,Mode=OneWay}" SelectedIndex="{x:Bind IndexOfLayer,Mode=TwoWay}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate  x:DataType="local:Item">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{x:Bind Name1}"  />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
     </StackPanel>
 </Page>

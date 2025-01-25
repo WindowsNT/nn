@@ -11,6 +11,10 @@ L"Save as",
 L"Train",
 L"CPU",
 L"GPU",
+L"Input",
+L"Output",
+L"Hidden",
+L"Layer",
 };
 
-#define MAX_LANG 13
+#define MAX_LANG 17

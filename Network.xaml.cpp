@@ -9,6 +9,11 @@ using namespace winrt::Microsoft::UI::Xaml;
 using namespace winrt::Microsoft::UI::Xaml::Controls;
 
 extern bool TrainCancel;
+extern std::wstring fil;
+
+
+#include "nn.h"
+extern PROJECT project;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -36,21 +41,72 @@ namespace winrt::NN::implementation
 
     }
 
+    winrt::Windows::Foundation::Collections::IObservableVector<winrt::NN::Item> Network::LayerList()
+    {
+        auto children = single_threaded_observable_vector<NN::Item>();
+        for (size_t i = 0; i < project.nn.Layers.size(); i++)
+        {
+			auto item = winrt::make<NN::implementation::Item>();
+            if (i == 0)
+				item.Name1(s(14));
+            else
+            if (i == (project.nn.Layers.size() - 1))
+                item.Name1(s(15));
+            else
+                item.Name1(std::wstring(s(16)) + std::wstring(L" ") + std::to_wstring(i));
+			children.Append(item);
+        }
+		return children;
+    }
+
+
+	long Network::IndexOfLayer()
+	{
+		return 0;
+	}
+	void Network::IndexOfLayer(long idx)
+	{
+        nop();
+	}
+
+
     void Network::OnOpen(IInspectable, IInspectable)
     {
 
     }
      void Network::OnNew(IInspectable, IInspectable)
     {
-
+         std::vector<wchar_t> a(10000);
+         GetModuleFileName(0, a.data(), 10000);
+         ShellExecute(0, L"open", a.data(), 0, 0, SW_SHOW);
+         return;
     }
-    void Network::OnSave(IInspectable, IInspectable)
+    void Network::OnSave(IInspectable a, IInspectable b)
     {
-
+        if (fil.empty())
+            OnSaveAs(a, b);
+        else
+        {
+            void SaveProjectToFile(const wchar_t* f);
+			SaveProjectToFile(fil.c_str());
+        }
     }
-    void Network::OnSaveAs(IInspectable, IInspectable)
+    void Network::OnSaveAs(IInspectable a, IInspectable b)
     {
+        OPENFILENAME of = { 0 };
+        of.lStructSize = sizeof(of);
+        of.hwndOwner = (HWND)0;
+        of.lpstrFilter = L"*.nn\0*.nn\0\0";
+        std::vector<wchar_t> fnx(10000);
+        of.lpstrFile = fnx.data();
+        of.nMaxFile = 10000;
+        of.lpstrDefExt = L"nn";
+        of.Flags = OFN_PATHMUSTEXIST | OFN_OVERWRITEPROMPT;
+        if (!GetSaveFileName(&of))
+            return;
 
+        fil = fnx.data();
+        OnSave(a, b);
     }
 
     void Network::Train_Cancel(IInspectable, IInspectable)

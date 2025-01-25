@@ -1,3 +1,6 @@
+import "Item.idl";
+
+
 namespace NN
 {
     [default_interface]
@@ -6,5 +9,9 @@ namespace NN
         static String txt(Int32 sidx);
         Network();
         void Refresh();
+
+        Int32 IndexOfLayer;
+        Windows.Foundation.Collections.IObservableVector<Item> LayerList{ get; };
+
     }
 }
