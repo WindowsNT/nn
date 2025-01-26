@@ -32,6 +32,12 @@ namespace winrt::NN::implementation
         }
 
 
+        bool InputsVisible();
+        bool CountVisible();
+        bool OutputsVisible();
+        double NumNeurons();
+        void NumNeurons(double);
+
         bool LearningRateVisible();
         bool ActFuncVisible();
         double LearningRate();
@@ -47,9 +53,12 @@ namespace winrt::NN::implementation
         void IndexOfAct(long);
         winrt::Windows::Foundation::Collections::IObservableVector<winrt::NN::Item> ActList();
 
+        winrt::hstring WeightsText();
+        winrt::hstring BiasesText();
 
 
         // Menu
+        void AddHiddenAfter(IInspectable, IInspectable);
         void OnOpen(IInspectable, IInspectable);
         void OnNew(IInspectable, IInspectable);
         void OnSave(IInspectable, IInspectable);
@@ -58,7 +67,8 @@ namespace winrt::NN::implementation
         void OnTrainGPU(IInspectable, IInspectable);
         void Train_Cancel(IInspectable, IInspectable);
         void OnDebugGenMnist(IInspectable, IInspectable);
-		void OnExportONNX(IInspectable, IInspectable);
+        void OnExportONNX(IInspectable, IInspectable);
+        void OnExportPTH(IInspectable, IInspectable);
         
     };
 }

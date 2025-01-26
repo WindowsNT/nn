@@ -16,6 +16,7 @@
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "mfuuid.lib")
 #pragma comment(lib, "Prntvpt.lib")
+#pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "crypt32.lib")
 
 

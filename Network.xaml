@@ -55,6 +55,11 @@
                         <FontIcon Glyph="&#xE792;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="{x:Bind txt(20),Mode=OneTime}" Click="OnExportPTH" >
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE792;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="DebugGenerateMnistR" Click="OnDebugGenMnist" >
                 </MenuFlyoutItem>
@@ -81,12 +86,14 @@
             </MenuBarItem>
         </MenuBar>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Margin="10,5,20,0"  Orientation="Horizontal">
             <TextBlock Margin="10,5,20,0">Batch:</TextBlock>
             <NumberBox Margin="10,0,20,0" x:Name="BatchNumber1" Text="{x:Bind BatchNumber,Mode=TwoWay}" Width="100" Minimum="1" Maximum="32"></NumberBox>
             <TextBlock Margin="10,5,20,0">Epochs:</TextBlock>
             <NumberBox Margin="10,0,20,0" x:Name="EpochNumber1" Text="{x:Bind NumEpochs,Mode=TwoWay}" Width="100" Minimum="1" Maximum="30"></NumberBox>
+        </StackPanel>
 
+        <StackPanel Margin="10,5,20,0"  Orientation="Horizontal">
             <TextBlock Margin="10,5,20,0">Layer:</TextBlock>
             <ComboBox Margin="10,0,10,0" x:Name="LayerList1" ItemsSource="{x:Bind LayerList,Mode=OneWay}" SelectedIndex="{x:Bind IndexOfLayer,Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
@@ -97,6 +104,32 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+
+            <StackPanel Orientation="Horizontal" Visibility="{x:Bind InputsVisible,Mode=OneWay}">
+                <TextBlock Margin="10,5,20,0"># of inputs:</TextBlock>
+                <NumberBox Margin="10,0,20,0" Text="{x:Bind NumNeurons,Mode=TwoWay}" Width="100" ></NumberBox>
+                <Button Click="AddHiddenAfter" Margin="10,5,0,0" >
+                    <FontIcon Glyph="&#xE710;"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Visibility="{x:Bind CountVisible,Mode=OneWay}">
+                <TextBlock Margin="10,5,20,0"># of neurons:</TextBlock>
+                <NumberBox Margin="10,0,20,0" Text="{x:Bind NumNeurons,Mode=TwoWay}" Width="100" ></NumberBox>
+                <TextBlock Margin="10,5,20,0">Weights:</TextBlock>
+                <TextBlock Margin="10,5,20,0" Text="{x:Bind WeightsText,Mode=OneWay}"  ></TextBlock>
+                <TextBlock Margin="10,5,20,0">Biases:</TextBlock>
+                <TextBlock Margin="10,5,20,0" Text="{x:Bind BiasesText,Mode=OneWay}" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Visibility="{x:Bind OutputsVisible,Mode=OneWay}">
+                <TextBlock Margin="10,5,20,0"># of outputs:</TextBlock>
+                <NumberBox Margin="10,0,20,0" Text="{x:Bind NumNeurons,Mode=TwoWay}" Width="100" ></NumberBox>
+                <TextBlock Margin="10,5,20,0">Weights:</TextBlock>
+                <TextBlock Margin="10,5,20,0" Text="{x:Bind WeightsText,Mode=OneWay}"  ></TextBlock>
+                <TextBlock Margin="10,5,20,0">Biases:</TextBlock>
+                <TextBlock Margin="10,5,20,0" Text="{x:Bind BiasesText,Mode=OneWay}" ></TextBlock>
+            </StackPanel>
+
+
             <StackPanel Orientation="Horizontal" Visibility="{x:Bind LearningRateVisible,Mode=OneWay}">
             <TextBlock Margin="10,5,20,0">Learning rate:</TextBlock>
             <NumberBox Margin="10,0,20,0" x:Name="LearningRate1" Text="{x:Bind LearningRate,Mode=TwoWay}" Width="100" Minimum="0.000" Maximum="1"></NumberBox>

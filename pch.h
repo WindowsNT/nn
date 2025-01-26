@@ -75,6 +75,10 @@
 
 #include <tclap/Arg.h>
 
+
+inline std::wstring datafolder;
+inline std::shared_ptr<XML3::XML> settings;
+
 template <typename T = char>
 inline bool PutFile(const wchar_t* f, std::vector<T>& d, bool Fw = false)
 {

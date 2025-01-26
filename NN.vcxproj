@@ -134,11 +134,18 @@
     <ClInclude Include="MainWindow.xaml.h">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="Settings.xaml.h">
+      <DependentUpon>Settings.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
     <Page Include="MainWindow.xaml" />
     <Page Include="Network.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
@@ -162,6 +169,10 @@
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="python.cpp" />
+    <ClCompile Include="Settings.xaml.cpp">
+      <DependentUpon>Settings.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Item.idl" />
@@ -171,6 +182,10 @@
     </Midl>
     <Midl Include="Network.idl">
       <DependentUpon>Network.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Midl>
+    <Midl Include="Settings.idl">
+      <DependentUpon>Settings.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
   </ItemGroup>
@@ -197,6 +212,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="7zr.exe" />
     <None Include="onnxexport.py" />
     <None Include="packages.config" />
   </ItemGroup>

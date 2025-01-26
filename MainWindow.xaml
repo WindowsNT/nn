@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Title="NN">
 
-    <NavigationView x:Name="xMain" PaneDisplayMode="LeftCompact" Loaded="OnLoad" ItemInvoked="ItemInvoked" >
+    <NavigationView x:Name="xMain" PaneDisplayMode="LeftCompact" Loaded="OnLoad" ItemInvoked="ItemInvoked"  >
         <NavigationView.MenuItems>
             <NavigationViewItem  Icon="Globe" Content="{x:Bind txt(6)}" x:Name="ViewNetwork" >
                 <NavigationViewItem.KeyboardAccelerators>

@@ -6,6 +6,7 @@
   <ItemGroup>
     <Page Include="MainWindow.xaml" />
     <Page Include="Network.xaml" />
+    <Page Include="Settings.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
@@ -70,6 +71,7 @@
     <None Include="onnxexport.py">
       <Filter>Python</Filter>
     </None>
+    <None Include="7zr.exe" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />

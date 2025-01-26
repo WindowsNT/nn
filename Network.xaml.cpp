@@ -15,7 +15,8 @@ extern std::wstring fil;
 
 
 #include "nn.h"
-void NNToPythonOnnx(::NN&);
+void NNToPythonOnnx(::NN&,const wchar_t*);
+void NNToPythonPTH(::NN&, const wchar_t*);
 
 extern int CurrentBatch;
 extern int NumEpochsX;
@@ -114,6 +115,149 @@ namespace winrt::NN::implementation
         NumEpochsX = (int)v;
     }
 
+    bool Network::InputsVisible()
+    {
+		for (size_t i = 0; i < project.nn.Layers.size() && i < 1 ; i++)
+		{
+			if (project.nn.Layers[i].Sel)
+				return 1;
+		}
+		return 0;
+    }
+    bool Network::CountVisible()
+    {
+        for (size_t i = 1; i < (project.nn.Layers.size() - 1); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+                return 1;
+        }
+        return 0;
+    }
+    bool Network::OutputsVisible()
+    {
+        for (size_t i = 0; i < project.nn.Layers.size(); i++)
+        {
+            if (i == (project.nn.Layers.size() - 1) && project.nn.Layers[i].Sel)
+                return 1;
+        }
+        return 0;
+    }
+
+    double Network::NumNeurons()
+    {
+        for (size_t i = 0; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+            {
+				if (i == 0)
+					return (double)project.nn.Layers[i + 1].weights.rows();
+				if (i == (project.nn.Layers.size() - 1))
+					return (double)project.nn.Layers[i].biases.cols();
+				return (double)project.nn.Layers[i].weights.cols();
+            }
+        }
+        return 0;
+    }
+    void Network::NumNeurons(double n)
+    {
+        for (size_t i = 0; i < project.nn.Layers.size() ; i++)
+        {
+            if (project.nn.Layers[i].Sel)
+            {
+                if (i == 0) // input
+                {
+					if (project.nn.Layers[i + 1].weights.rows() != (int)n)
+                    {
+                        project.nn.Layers[i + 1].weights.init((int)n, project.nn.Layers[i + 1].weights.cols());
+                        project.nn.RecalculateWB();
+                        Refresh({ L"WeightsText",L"BiasesText" });
+                    }
+                }
+                else
+                if (i == (project.nn.Layers.size() - 1)) // output
+                {
+                    if (project.nn.Layers[i].biases.cols() != n)
+                    {
+                        project.nn.Layers[i].weights.init(project.nn.Layers[i].weights.rows(), (int)n);
+                        project.nn.Layers[i].biases.init(1, (int)n);
+                        project.nn.RecalculateWB();
+                        Refresh({ L"WeightsText",L"BiasesText" });
+                    }
+                }
+                else
+                {
+                    if (project.nn.Layers[i].weights.rows() != (int)n)
+                    {
+                        project.nn.Layers[i].weights.init(project.nn.Layers[i].weights.rows(), (int)n);
+                        project.nn.Layers[i].biases.init(1, (int)n);
+                        project.nn.RecalculateWB();
+                        Refresh({ L"WeightsText",L"BiasesText" });
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+
+    winrt::hstring Network::WeightsText()
+    {
+		std::vector<wchar_t> s(10000);
+        for (size_t i = 1; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+            {
+				swprintf_s(s.data(), 10000, L"%ix%i", project.nn.Layers[i].weights.rows(), project.nn.Layers[i].weights.cols());
+                break;
+            }
+        }
+        return s.data();
+    }
+
+    winrt::hstring Network::BiasesText()
+    {
+        std::vector<wchar_t> s(10000);
+        for (size_t i = 1; i < project.nn.Layers.size(); i++)
+        {
+            if (project.nn.Layers[i].Sel)
+            {
+                swprintf_s(s.data(), 10000, L"%ix%i", project.nn.Layers[i].biases.rows(), project.nn.Layers[i].biases.cols());
+                break;
+            }
+        }
+        return s.data();
+    }
+
+    void Network::AddHiddenAfter(IInspectable, IInspectable)
+    {
+        /*
+            mNIST: input # 784
+		             hidden : 128 neurons * 784 weights each
+					 output : 10 neurons * 128 weights each
+                     */
+        for (size_t i = 0; i < project.nn.Layers.size() - 1 ; i++)
+        {
+            if (project.nn.Layers[i].Sel)
+            {
+				auto lr = project.nn.Layers[i].lr;
+				if (lr <= 0.000f)
+					lr = 0.01f;
+                int num_neurons = project.nn.Layers[i + 1].weights.cols();
+                int num_weights_per_neuron = project.nn.Layers[i].output.cols();
+                if (i == 0)
+                    num_weights_per_neuron = 128;
+				Layer l(lr, 1, num_neurons, num_weights_per_neuron);
+
+				project.nn.Layers.insert(project.nn.Layers.begin() + i + 1, l);
+
+                project.nn.RecalculateWB();
+                Refresh();
+                break;
+            }
+        }
+    }
+
+
     double Network::LearningRate()
     {
         for (size_t i = 1; i < project.nn.Layers.size(); i++)
@@ -158,7 +302,7 @@ namespace winrt::NN::implementation
 			else
 				project.nn.Layers[i].Sel = 0;
         }
-        Refresh({L"LearningRate",L"LearningRateVisible",L"ActFuncVisible",L"IndexOfAct"});
+        Refresh({L"LearningRate",L"LearningRateVisible",L"ActFuncVisible",L"IndexOfAct",L"InputsVisible",L"CountVisible",L"OutputsVisible",L"NumNeurons",L"WeightsText",L"BiasesText"});
 	}
 
 
@@ -202,9 +346,39 @@ namespace winrt::NN::implementation
     	Refresh();
     }
 
+    void Network::OnExportPTH(IInspectable, IInspectable)
+    {
+        OPENFILENAME of = { 0 };
+        of.lStructSize = sizeof(of);
+        of.hwndOwner = (HWND)0;
+        of.lpstrFilter = L"*.pth\0*.pth\0\0";
+        std::vector<wchar_t> fnx(10000);
+        of.lpstrFile = fnx.data();
+        of.nMaxFile = 10000;
+        of.lpstrDefExt = L"pth";
+        of.Flags = OFN_PATHMUSTEXIST | OFN_OVERWRITEPROMPT;
+        if (!GetSaveFileName(&of))
+            return;
+
+        NNToPythonPTH(project.nn,fnx.data());
+
+    }
+
     void Network::OnExportONNX(IInspectable, IInspectable)
     {
-		NNToPythonOnnx(project.nn);
+        OPENFILENAME of = { 0 };
+        of.lStructSize = sizeof(of);
+        of.hwndOwner = (HWND)0;
+        of.lpstrFilter = L"*.onnx\0*.onnx\0\0";
+        std::vector<wchar_t> fnx(10000);
+        of.lpstrFile = fnx.data();
+        of.nMaxFile = 10000;
+        of.lpstrDefExt = L"onnx";
+        of.Flags = OFN_PATHMUSTEXIST | OFN_OVERWRITEPROMPT;
+        if (!GetSaveFileName(&of))
+            return;
+
+		NNToPythonOnnx(project.nn,fnx.data());
     }
 
      void Network::OnNew(IInspectable, IInspectable)

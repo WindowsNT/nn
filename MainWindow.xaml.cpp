@@ -4,6 +4,9 @@
 #include "MainWindow.g.cpp"
 #endif
 
+
+#include "Settings.xaml.h"
+
 using namespace winrt;
 using namespace winrt::Microsoft::UI::Xaml;
 using namespace winrt::Microsoft::UI::Xaml::Controls;
@@ -26,7 +29,7 @@ namespace winrt::NN::implementation
 			return;
 		if (ar.IsSettingsInvoked())
 		{
-//			fr.Navigate(winrt::xaml_typename<winrt::tsed::Settings>());
+			fr.Navigate(winrt::xaml_typename<winrt::NN::Settings>());
 			return;
 		}
 		auto it = ar.InvokedItemContainer().as<NavigationViewItem>();

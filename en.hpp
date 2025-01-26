@@ -17,6 +17,9 @@ L"Hidden",
 L"Layer",
 L"File",
 L"Export ONNX",
+L"Export PTH",
+L"Python Location:",
+L"Please wait...",
 };
 
-#define MAX_LANG 19
+#define MAX_LANG 22

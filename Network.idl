@@ -15,9 +15,15 @@ namespace NN
         Int32 IndexOfAct;
         Windows.Foundation.Collections.IObservableVector<Item> ActList{ get; };
         Double LearningRate;
+        Double NumNeurons;
         Double NumEpochs;
         Double BatchNumber;
+        String WeightsText{ get; };
+        String BiasesText{ get; };
         Boolean LearningRateVisible{ get; };
+        Boolean InputsVisible{ get; };
+        Boolean CountVisible{ get; };
+        Boolean OutputsVisible{ get; };
         Boolean ActFuncVisible{ get; } ;
     }
 }

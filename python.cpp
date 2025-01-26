@@ -1,116 +1,66 @@
 #include "pch.h"
 #include "nn.h"
 
+#pragma warning(disable:4100)
+
 std::wstring TempFile3();
 
-void NNToPythonOnnx(NN& nn)
-{
-
-	std::string pyf;
-	std::vector<char> d(10000);
-
-	pyf += R"(
-import torch
-import torch.nn as nn
-import torch.onnx
-import numpy as np
-
-class SimpleModel(nn.Module):
-
-    def forward(self, x):
-        x = self.relu(self.fc1(x))
-        x = self.fc2(x)
-        return x
-
-    def __init__(self):
-        super(SimpleModel, self).__init__()
-        self.relu = nn.ReLU()
-
-)";
-
-	// Input layer
-	auto& inputLayer = nn.Layers[1];
-	for (int i = 1; i < nn.Layers.size(); i++)
-	{
-		auto& ly = nn.Layers[i];
-		sprintf_s(d.data(), 10000, "        self.fc%i = nn.Linear(%i,%i)\r\n", i,ly.weights.rows(), ly.weights.cols());
-		pyf += d.data();
-	}
-
-	pyf += "\r\n\r\n";
-	pyf += R"(model = SimpleModel())";
-	pyf += "\r\n";
-	pyf += R"(with torch.no_grad() :)";
-	pyf += "\r\n";
-
-	for (int i = 1; i < nn.Layers.size(); i++)
-	{
-		auto& ly = nn.Layers[i];
-
-
-		ystring te = TempFile3();
-		PutFile<float>(te.c_str(), ly.weights.data(),true);
-		for (auto& t : te)
-		{
-			if (t == '\\')
-				t = '/';
-		}
-		sprintf_s(d.data(), 10000, "    model.fc%i.weight = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i, %i), dtype=torch.float32))\r\n",  i, te.a_str(), ly.weights.cols(), ly.weights.rows());
-		pyf += d.data();
-
-
-		te = TempFile3();
-		PutFile<float>(te.c_str(), ly.biases.data(), true);
-		for (auto& t : te)
-		{
-			if (t == '\\')
-				t = '/';
-		}
-		sprintf_s(d.data(), 10000, "    model.fc%i.bias = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i), dtype=torch.float32))\r\n", i, te.a_str(), ly.biases.cols());
-		pyf += d.data();
-
-	}
-
-	sprintf_s(d.data(), 10000, "model.eval()\r\ndummy_input = torch.randn(1, %i)",nn.Layers[1].weights.rows());
-	pyf += d.data();
-
-	pyf += R"(
-onnx_file_path = "custom_nn_model.onnx"
-torch.onnx.export(
-    model,                  # The PyTorch model
-    dummy_input,            # Example input
-    onnx_file_path,         # File path to save the ONNX file
-    export_params=True,     # Include weights and biases
-    opset_version=11,       # ONNX opset version
-    input_names=['input'],  # Input tensor name
-    output_names=['output'],# Output tensor name
-    dynamic_axes={          # Dynamic axes for variable batch sizes
-        'input': {0: 'batch_size'},
-        'output': {0: 'batch_size'}
-    }
-)
-
-)";
-
-
-//	std::ofstream of("g:\\python\\nn.py");
-//	of << pyf;
-//	of.close();
-}
 
 //
 
-extern HICON hIcon11;
+extern HICON hIcon1;
 std::wstring TempFile3();
 
 #pragma warning(disable:4244)
 #pragma warning(disable:4267)
+#pragma warning(disable:4334)
 #include "zip.hpp"
 #include "zip.h"
 #include "zip.c"
 
+#include <filesystem>
 
 
+std::wstring& SwapSlash(std::wstring& te)
+{
+	for (auto& t : te)
+	{
+		if (t == '\\')
+			t = '/';
+	}
+
+	return te;
+}
+
+void Locate(const wchar_t* fi)
+{
+	if (!PathFileExists(fi))
+		return;
+	ystring y;
+	y.Format(L"/select,\"%s\"", fi);
+	ShellExecute(0, L"open", L"explorer.exe", y.c_str(), 0, SW_SHOWMAXIMIZED);
+}
+
+
+
+class PushPopDir
+{
+	std::wstring cd;
+public:
+
+	PushPopDir(const wchar_t* nd)
+	{
+		cd = std::filesystem::current_path(); //getting path
+		if (nd)
+			std::filesystem::current_path(nd);
+	}
+
+	~PushPopDir()
+	{
+		std::filesystem::current_path(cd.c_str());
+	}
+
+};
 
 std::wstring TempFile3()
 {
@@ -315,7 +265,7 @@ struct MODULEX
 		tc.cbSize = sizeof(tc);
 		tc.hwndParent = 0;
 		tc.pszWindowTitle = L"Turbo Play";
-		tc.hMainIcon = hIcon11;
+		tc.hMainIcon = hIcon1;
 		tc.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_CAN_BE_MINIMIZED | TDF_USE_HICON_MAIN | TDF_SHOW_PROGRESS_BAR;
 		tc.pszMainInstruction = L"Installing...";
 		tc.pszContent = L"Please wait...";
@@ -350,11 +300,11 @@ struct MODULEX
 		TASKDIALOGCONFIG tc = { 0 };
 		tc.cbSize = sizeof(tc);
 		tc.hwndParent = 0;
-		tc.pszWindowTitle = L"Turbo Play";
-		tc.hMainIcon = hIcon11;
+		tc.pszWindowTitle = L"NN";
+		tc.hMainIcon = hIcon1;
 		tc.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_CAN_BE_MINIMIZED | TDF_USE_HICON_MAIN | TDF_SHOW_MARQUEE_PROGRESS_BAR;
-		tc.pszMainInstruction = L"Installing...";
-		tc.pszContent = L"Please wait...";
+		tc.pszMainInstruction = s(22);
+		tc.pszContent = s(22);
 		tc.dwCommonButtons = TDCBF_CANCEL_BUTTON;
 		tc.pfCallback = [](_In_ HWND hwnd, _In_ UINT msg, _In_ WPARAM wParam, _In_ LPARAM lpx, _In_ LONG_PTR lp) ->HRESULT
 			{
@@ -383,7 +333,8 @@ struct MODULEX
 	{
 		_folder = fo;
 		_7z = _77;
-		FFmpegBinary = ffmp;
+		if (ffmp)
+			FFmpegBinary = ffmp;
 	}
 
 	std::wstring FFmpegBinary;
@@ -393,6 +344,23 @@ struct MODULEX
 	{
 		return _folder;
 	}
+
+	bool RunP(const wchar_t* fu,const wchar_t* par)
+	{
+		SHELLEXECUTEINFO sei = { 0 };
+		sei.cbSize = sizeof(sei);
+		sei.fMask = SEE_MASK_NOCLOSEPROCESS;
+		sei.lpFile = fu;
+		sei.lpParameters = par;
+		ShellExecuteEx(&sei);
+		WaitShow([&]()
+			{
+				WaitForSingleObject(sei.hProcess, INFINITE);
+				CloseHandle(sei.hProcess);
+			});
+		return true;
+	}
+
 	bool InstallPythonPackage(const char* force_url)
 	{
 		ystring url;
@@ -570,3 +538,288 @@ struct MODULEX
 	}
 
 };
+
+static signed int CudaAv = 0;
+bool IsCudaAvailable()
+{
+	if (CudaAv == 1)
+		return true;
+	if (CudaAv == -1)
+		return false;
+
+
+	CudaAv = -1;
+	CComPtr<IDXGIFactory> pFactory = NULL;
+	CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&pFactory);
+	for (UINT ia = 0; ; ia++)
+	{
+		CComPtr<IDXGIAdapter> ad;
+		pFactory->EnumAdapters(ia, &ad);
+		if (!ad)
+			break;
+
+		DXGI_ADAPTER_DESC desc = {};
+		ad->GetDesc(&desc);
+		if (desc.VendorId == 4318)
+			CudaAv = 1;
+		for (UINT io = 0; ; io++)
+		{
+			CComPtr<IDXGIOutput> out;
+			ad->EnumOutputs(io, &out);
+			if (!out)
+				break;
+
+			DXGI_OUTPUT_DESC desc2 = {};
+			out->GetDesc(&desc2);
+		}
+	}
+
+	if (CudaAv == 1)
+		return true;
+	return false;
+}
+
+
+std::wstring PythonFolder()
+{
+	auto pyf = settings->GetRootElement().vv("pyf").GetWideValue();
+	if (pyf.empty())
+	{
+		return datafolder + L"\\python";
+	}
+	return pyf;
+}
+
+
+HRESULT InstallPython()
+{
+	std::wstring fold = PythonFolder();
+
+	auto exec = fold + L"\\python.exe";
+	if (PathFileExists(exec.c_str()))
+		return S_FALSE;
+
+	MODULEX m(fold.c_str(), L"7zr.exe", 0);
+	if (!m.InstallPythonPackage(0))
+		return E_FAIL;
+
+
+
+	return S_OK;
+}
+
+
+
+
+void NNToPythonOnnx(NN& nn,const wchar_t* ofi)
+{
+
+	std::string pyf;
+	std::vector<char> d(10000);
+
+	pyf += R"(
+import torch
+import torch.nn as nn
+import torch.onnx
+import numpy as np
+
+class SimpleModel(nn.Module):
+
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.relu = nn.ReLU()
+
+)";
+
+	// Input layer
+//	auto& inputLayer = nn.Layers[1];
+	for (int i = 1; i < nn.Layers.size(); i++)
+	{
+		auto& ly = nn.Layers[i];
+		sprintf_s(d.data(), 10000, "        self.fc%i = nn.Linear(%i,%i)\r\n", i, ly.weights.rows(), ly.weights.cols());
+		pyf += d.data();
+	}
+
+	pyf += "\r\n\r\n";
+	pyf += R"(model = SimpleModel())";
+	pyf += "\r\n";
+	pyf += R"(with torch.no_grad() :)";
+	pyf += "\r\n";
+
+	for (int i = 1; i < nn.Layers.size(); i++)
+	{
+		auto& ly = nn.Layers[i];
+
+
+		ystring te = TempFile3();
+		PutFile<float>(te.c_str(), ly.weights.data(), true);
+		SwapSlash(te);
+		sprintf_s(d.data(), 10000, "    model.fc%i.weight = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i, %i), dtype=torch.float32))\r\n", i, te.a_str(), ly.weights.cols(), ly.weights.rows());
+		pyf += d.data();
+
+
+		te = TempFile3();
+		PutFile<float>(te.c_str(), ly.biases.data(), true);
+		for (auto& t : te)
+		{
+			if (t == '\\')
+				t = '/';
+		}
+		sprintf_s(d.data(), 10000, "    model.fc%i.bias = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i), dtype=torch.float32))\r\n", i, te.a_str(), ly.biases.cols());
+		pyf += d.data();
+
+	}
+
+	sprintf_s(d.data(), 10000, "model.eval()\r\ndummy_input = torch.randn(1, %i)\r\n", nn.Layers[1].weights.rows());
+	pyf += d.data();
+
+	std::wstring ofi2 = ofi;
+	SwapSlash(ofi2);
+	sprintf_s(d.data(), 10000, "onnx_file_path = \"%s\"\r\n", ystring(ofi2.c_str()).a_str());
+	pyf += d.data();
+
+	pyf += R"(
+torch.onnx.export(
+    model,                  # The PyTorch model
+    dummy_input,            # Example input
+    onnx_file_path,         # File path to save the ONNX file
+    export_params=True,     # Include weights and biases
+    opset_version=11,       # ONNX opset version
+    input_names=['input'],  # Input tensor name
+    output_names=['output'],# Output tensor name
+    dynamic_axes={          # Dynamic axes for variable batch sizes
+        'input': {0: 'batch_size'},
+        'output': {0: 'batch_size'}
+    }
+)
+
+)";
+
+
+	auto fo = PythonFolder();
+	if (FAILED(InstallPython()))
+		return;	
+
+	const wchar_t* gu = L"585EE46C-826C-4B1C-A10D-C8F8889CD404.py";
+
+	auto run1 = fo + L"\\" + gu;
+	std::ofstream of(run1);
+	of << pyf;
+	of.close();
+
+	std::wstring fold = PythonFolder();
+	auto exec = fold + L"\\python.exe";
+	MODULEX m(fold.c_str(), L"7zr.exe", 0);
+	PushPopDir ppd(fold.c_str());
+	m.RunP(L"python.exe", gu);
+	DeleteFile(gu);
+	Locate(ofi);
+}
+
+
+void NNToPythonPTH(NN& nn,const wchar_t* ofi)
+{
+
+	std::string pyf;
+	std::vector<char> d(10000);
+
+	pyf += R"(
+import torch
+import torch.nn as nn
+import torch.onnx
+import numpy as np
+
+class SimpleModel(nn.Module):
+
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.relu = nn.ReLU()
+
+)";
+
+	// Input layer
+//	auto& inputLayer = nn.Layers[1];
+	for (int i = 1; i < nn.Layers.size(); i++)
+	{
+		auto& ly = nn.Layers[i];
+		sprintf_s(d.data(), 10000, "        self.fc%i = nn.Linear(%i,%i)\r\n", i, ly.weights.rows(), ly.weights.cols());
+		pyf += d.data();
+	}
+
+	pyf += "\r\n\r\n";
+	pyf += R"(model = SimpleModel())";
+	pyf += "\r\n";
+	pyf += R"(with torch.no_grad() :)";
+	pyf += "\r\n";
+
+	for (int i = 1; i < nn.Layers.size(); i++)
+	{
+		auto& ly = nn.Layers[i];
+
+
+		ystring te = TempFile3();
+		PutFile<float>(te.c_str(), ly.weights.data(), true);
+		for (auto& t : te)
+		{
+			if (t == '\\')
+				t = '/';
+		}
+		sprintf_s(d.data(), 10000, "    model.fc%i.weight = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i, %i), dtype=torch.float32))\r\n", i, te.a_str(), ly.weights.cols(), ly.weights.rows());
+		pyf += d.data();
+
+
+		te = TempFile3();
+		PutFile<float>(te.c_str(), ly.biases.data(), true);
+		for (auto& t : te)
+		{
+			if (t == '\\')
+				t = '/';
+		}
+		sprintf_s(d.data(), 10000, "    model.fc%i.bias = nn.Parameter(torch.tensor(np.fromfile(\"%s\", dtype=np.float32).reshape(%i), dtype=torch.float32))\r\n", i, te.a_str(), ly.biases.cols());
+		pyf += d.data();
+
+	}
+
+	sprintf_s(d.data(), 10000, "model.eval()\r\ndummy_input = torch.randn(1, %i)\r\n", nn.Layers[1].weights.rows());
+	pyf += d.data();
+
+	std::wstring ofi2 = ofi;
+	SwapSlash(ofi2);
+	sprintf_s(d.data(), 10000, "file_path = \"%s\"\r\n", ystring(ofi2.c_str()).a_str());
+	pyf += d.data();
+
+	pyf += R"(
+torch.save(model.state_dict(), file_path)
+
+)";
+
+
+	auto fo = PythonFolder();
+	if (FAILED(InstallPython()))
+		return;
+
+	const wchar_t* gu = L"585EE46C-826C-4B1C-A10D-C8F8889CD403.py";
+
+	auto run1 = fo + L"\\" + gu;
+	std::ofstream of(run1);
+	of << pyf;
+	of.close();
+
+	std::wstring fold = PythonFolder();
+	auto exec = fold + L"\\python.exe";
+	MODULEX m(fold.c_str(), L"7zr.exe", 0);
+	PushPopDir ppd(fold.c_str());
+	m.RunP(L"python.exe", gu);
+	DeleteFile(gu);
+	Locate(ofi);
+}
