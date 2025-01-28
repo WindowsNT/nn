@@ -603,8 +603,12 @@ HRESULT InstallPython()
 	if (!m.InstallPythonPackage(0))
 		return E_FAIL;
 
+	if (IsCudaAvailable())
+		m.PipInstall(L"torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121");
+	else
+		m.PipInstall(L"torch torchvision torchaudio");
 
-
+	m.PipInstall(L"numpy onnx onnxruntime onnxruntime-directml");
 	return S_OK;
 }
 

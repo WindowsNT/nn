@@ -6,6 +6,7 @@ f:\tools\pack\pack64.exe /m %CD%\Package.appxmanifest /n CN=EDD191C1-439D-4D37-B
 
 msbuild nn.sln /clp:ErrorsOnly /p:Configuration="Release" /p:Platform=x64 /t:restore /p:RestorePackagesConfig=true
 msbuild nn.sln /clp:ErrorsOnly /p:Configuration="Release" /p:Platform=x64 
+call clbcall
 call sign x64\Release\nn\nn.exe
 
 REM Portable
