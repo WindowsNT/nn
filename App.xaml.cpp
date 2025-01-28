@@ -113,6 +113,9 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR t, int)
     {
         fil = t;
     }
+#ifdef _DEBUG
+	SetCurrentDirectory(L"f:\\wuitools\\nn\\x64\\Debug\\NN\\AppX");
+#endif
 
     {
         void (WINAPI * pfnXamlCheckProcessRequirements)();

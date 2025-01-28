@@ -20,6 +20,10 @@ L"Export ONNX",
 L"Export PTH",
 L"Python Location:",
 L"Please wait...",
+L"Data",
+L"Create MNIST sample...",
+L"Exit",
+L"Load CSV...",
 };
 
-#define MAX_LANG 22
+#define MAX_LANG 26

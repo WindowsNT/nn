@@ -28,6 +28,15 @@ public:
         return *this;
     }
 
+    Matrix row(int irow)
+    {
+        Matrix row_data(1,_cols);
+        for (int i = 0; i < _cols; i++) {
+            row_data.set(1,i,at(irow, i));
+        }
+        return row_data;
+    }
+
     void print()
     {
         printf("[\n");

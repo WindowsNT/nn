@@ -19,7 +19,7 @@
     <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <CommandLineArgs>r:\mn2.nn</CommandLineArgs>
+    <CommandLineArgs>r:\mnist.nn</CommandLineArgs>
     <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

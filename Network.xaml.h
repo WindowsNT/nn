@@ -60,13 +60,14 @@ namespace winrt::NN::implementation
         // Menu
         void AddHiddenAfter(IInspectable, IInspectable);
         void OnOpen(IInspectable, IInspectable);
+        void OnDataMNIST(IInspectable, IInspectable);
+        void OnExit(IInspectable, IInspectable);
         void OnNew(IInspectable, IInspectable);
         void OnSave(IInspectable, IInspectable);
         void OnSaveAs(IInspectable, IInspectable);
         void OnTrainCPU(IInspectable, IInspectable);
         void OnTrainGPU(IInspectable, IInspectable);
         void Train_Cancel(IInspectable, IInspectable);
-        void OnDebugGenMnist(IInspectable, IInspectable);
         void OnExportONNX(IInspectable, IInspectable);
         void OnExportPTH(IInspectable, IInspectable);
         

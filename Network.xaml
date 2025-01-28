@@ -50,21 +50,38 @@
                         <KeyboardAccelerator Key="S" Modifiers="Control,Shift"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="{x:Bind txt(19),Mode=OneTime}" Click="OnExportONNX" >
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE792;"/>
+                        <FontIcon Glyph="&#xEDE1;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="{x:Bind txt(20),Mode=OneTime}" Click="OnExportPTH" >
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE792;"/>
+                        <FontIcon Glyph="&#xEDE1;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="DebugGenerateMnistR" Click="OnDebugGenMnist" >
+                <MenuFlyoutItem Text="{x:Bind txt(25),Mode=OneTime}" Click="OnExit" >
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE711;"/>
+                    </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
 
+               
+     
             </MenuBarItem>
+
+            <MenuBarItem Title="{x:Bind txt(23),Mode=OneTime}" >
+                <MenuFlyoutItem Text="{x:Bind txt(24),Mode=OneTime}" Click="OnDataMNIST" >
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEA3B;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+            </MenuBarItem>
+
+            
             <MenuBarItem Title="{x:Bind txt(6),Mode=OneTime}" >
                 <MenuFlyoutItem Text="{x:Bind txt(12),Mode=OneTime}" Click="OnTrainCPU" >
                     <MenuFlyoutItem.Icon>

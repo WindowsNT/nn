@@ -68,10 +68,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="onnxexport.py">
-      <Filter>Python</Filter>
-    </None>
     <None Include="7zr.exe" />
+    <None Include="data\imdb\IMDB Dataset.csv">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="data\mnist\t10k-images.idx3-ubyte">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="data\mnist\t10k-labels.idx1-ubyte">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="data\mnist\train-images.idx3-ubyte">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="data\mnist\train-labels.idx1-ubyte">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />

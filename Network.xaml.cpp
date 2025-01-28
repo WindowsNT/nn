@@ -42,12 +42,7 @@ namespace winrt::NN::implementation
                 m_propertyChanged(*this, Microsoft::UI::Xaml::Data::PropertyChangedEventArgs{ s });
         }
     }
-    void Network::OnDebugGenMnist(IInspectable, IInspectable)
-    {
-        void mnist_test();
-         mnist_test();
 
-    }
 
     long  Network::IndexOfAct()
     {
@@ -361,6 +356,33 @@ namespace winrt::NN::implementation
             return;
 
         NNToPythonPTH(project.nn,fnx.data());
+
+    }
+
+
+    void Network::OnDataMNIST(IInspectable, IInspectable)
+    {
+        OPENFILENAME of = { 0 };
+        of.lStructSize = sizeof(of);
+        of.hwndOwner = (HWND)0;
+        of.lpstrFilter = L"*.nn\0*.nn\0\0";
+        std::vector<wchar_t> fnx(10000);
+        of.lpstrFile = fnx.data();
+        of.nMaxFile = 10000;
+        of.lpstrDefExt = L"nn";
+        of.Flags = OFN_PATHMUSTEXIST | OFN_OVERWRITEPROMPT;
+        if (!GetSaveFileName(&of))
+            return;
+
+        void mnist_test(const wchar_t* );
+        mnist_test(fnx.data());
+        void Locate(const wchar_t* fi);
+        Locate(fnx.data());
+    }
+
+
+    void Network::OnExit(IInspectable, IInspectable)
+    {
 
     }
 
