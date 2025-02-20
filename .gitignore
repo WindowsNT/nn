@@ -1,0 +1,5 @@
+!.gitignore
+inst.bat
+nn.msix
+.\vs 
+.\data\imdb.exe

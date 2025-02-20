@@ -1,0 +1,30 @@
+import "Item.idl";
+
+
+namespace NN
+{
+    [default_interface]
+    runtimeclass Network : Microsoft.UI.Xaml.Controls.Page, Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        static String txt(Int32 sidx);
+        Network();
+        void Refresh();
+        void Resize();
+        void Paint();
+        Int32 IndexOfLayer;
+        Windows.Foundation.Collections.IObservableVector<Item> LayerList{ get; };
+        Int32 IndexOfAct;
+        Windows.Foundation.Collections.IObservableVector<Item> ActList{ get; };
+        Double LearningRate;
+        Double NumNeurons;
+        Double NumEpochs;
+        Double BatchNumber;
+        String WeightsText{ get; };
+        String BiasesText{ get; };
+        Boolean LearningRateVisible{ get; };
+        Boolean InputsVisible{ get; };
+        Boolean CountVisible{ get; };
+        Boolean OutputsVisible{ get; };
+        Boolean ActFuncVisible{ get; } ;
+    }
+}
