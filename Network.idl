@@ -7,6 +7,7 @@ namespace NN
     runtimeclass Network : Microsoft.UI.Xaml.Controls.Page, Microsoft.UI.Xaml.Data.INotifyPropertyChanged
     {
         static String txt(Int32 sidx);
+        void TrainEnds();
         Network();
         void Refresh();
         void Resize();

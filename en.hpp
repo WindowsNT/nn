@@ -26,6 +26,8 @@ L"Exit",
 L"Load CSV...",
 L"RNN Train in CPU",
 L"RNN Train in GPU",
+L"Test Accuracy GPU",
+L"Test Accuracy CPU",
 };
 
-#define MAX_LANG 28
+#define MAX_LANG 30

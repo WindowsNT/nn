@@ -214,10 +214,40 @@ public:
         return *this;
     }
 
+    Matrix& leakyrelu()
+    {
+        for (size_t i = 0; i < _data.size(); i++) {
+            _data[i] = std::max(0.01f, _data[i]);
+        }
+        return *this;
+    }
+
+
     Matrix& relu_derivative()
     {
         for (size_t i = 0; i < _data.size(); i++) {
             _data[i] = _data[i] > 0 ? (matrix_t)1 : (matrix_t)0;
+        }
+        return *this;
+    }
+
+    Matrix& leakyrelu_derivative()
+    {
+        for (size_t i = 0; i < _data.size(); i++) {
+            _data[i] = _data[i] > 0 ? (matrix_t)1 : (matrix_t)0.01f;
+        }
+        return *this;
+    }
+
+    Matrix& identity()
+    {
+        return *this;
+    }
+
+    Matrix& identity_derivative()
+    {
+        for (size_t i = 0; i < _data.size(); i++) {
+            _data[i] = 1.0f;
         }
         return *this;
     }

@@ -52,7 +52,7 @@ namespace winrt::NN::implementation
         for (size_t i = 0; i < project.nn.Layers.size(); i++)
         {
             if (project.nn.Layers[i].Sel)
-                return project.nn.Layers[i].ActType;
+                return (long)project.nn.Layers[i].ActType;
         }
         return 0;
     }
@@ -61,7 +61,7 @@ namespace winrt::NN::implementation
         for (size_t i = 0; i < project.nn.Layers.size(); i++)
         {
             if (project.nn.Layers[i].Sel)
-                project.nn.Layers[i].ActType = l;
+                project.nn.Layers[i].ActType = (ACT_TYPE)l;
         }
     }
 
@@ -72,7 +72,13 @@ namespace winrt::NN::implementation
         item.Name1(L"Sigmoid");
         children.Append(item);
         item = winrt::make<NN::implementation::Item>();
-        item.Name1(L"Relu");
+        item.Name1(L"ReLu");
+        children.Append(item);
+        item = winrt::make<NN::implementation::Item>();
+        item.Name1(L"Identity");
+        children.Append(item);
+        item = winrt::make<NN::implementation::Item>();
+        item.Name1(L"Leaky ReLu");
         children.Append(item);
         return children;
     }
@@ -525,7 +531,7 @@ namespace winrt::NN::implementation
                 int num_weights_per_neuron = project.nn.Layers[i].output.cols();
                 if (i == 0)
                     num_weights_per_neuron = 128;
-				Layer l(lr, 1, num_neurons, num_weights_per_neuron);
+				Layer l(lr, ACT_TYPE::RELU, num_neurons, num_weights_per_neuron);
 
 				project.nn.Layers.insert(project.nn.Layers.begin() + i + 1, l);
 
@@ -727,6 +733,17 @@ namespace winrt::NN::implementation
         TrainCancel = 1;
     }
 
+    void Network::OnTestAGPU(IInspectable, IInspectable)
+    {
+        void TestAcc(int);
+        TestAcc(1);
+    }
+    void Network::OnTestACPU(IInspectable, IInspectable)
+    {
+        void TestAcc(int);
+        TestAcc(0);
+    }
+
     void Network::OnTrainGPU(IInspectable, IInspectable)
     {
         auto sp = Content().as<Panel>();
@@ -772,6 +789,13 @@ namespace winrt::NN::implementation
     }
 
 
+    void Network::TrainEnds()
+    {
+		auto sp = Content().as<Panel>();
+		auto ct = sp.FindName(L"Input1").as<ContentDialog>();
+		ct.Hide();
+    }
+
 }
 
 extern HWND MainWindow;
@@ -792,7 +816,11 @@ HRESULT ForCallback(int iEpoch, int iDataset, int step, float totalloss, float a
         return S_OK;
 
     ptc = ctc;
-    swprintf_s(msg,1000,L"Epoch %i - Set %i.\r\nCurrent loss: %.1f\r\nCurrent accuracy: %.1f", iEpoch + 1,iDataset,totalloss,acc);
+	if (totalloss == 0)
+        swprintf_s(msg, 1000, L"Epoch %i - Set %i.\r\nCurrent accuracy: %.1f", iEpoch + 1, iDataset, acc);
+    else
+        swprintf_s(msg, 1000, L"Epoch %i - Set %i.\r\nCurrent loss: %.1f\r\nCurrent accuracy: %.1f", iEpoch + 1, iDataset, totalloss, acc);
+
     PostMessage(MainWindow, WM_USER + 1, (WPARAM)param, (LPARAM)msg);
 
     return S_OK;
@@ -803,5 +831,29 @@ void CallbackUpdate(WPARAM param, LPARAM msg1)
 {
     winrt::NN::implementation::Network* n1 = (winrt::NN::implementation::Network*)param;
     n1->Content().as<Panel>().FindName(L"Input2").as<TextBlock>().Text((const wchar_t*)msg1);
+}
+
+extern winrt::Windows::Foundation::IInspectable thewindow;
+
+void TrainingEnds()
+{
+    auto i = thewindow;
+    if (i)
+    {
+        auto mw = i.as<winrt::NN::MainWindow>();
+        if (mw)
+        {
+            auto topnv = mw.Content().as<NavigationView>();
+            if (topnv)
+            {
+                Frame fr = topnv.FindName(L"contentFrame").as<Frame>();
+                fr.Content().as<winrt::NN::Network>().TrainEnds();
+            }
+        }
+    }
+
+
+//    winrt::NN::implementation::Network* n1 = (winrt::NN::implementation::Network*)param;
+//	n1->Content().as<Panel>().FindName(L"Input1").as<ContentDialog>().Hide();
 
 }

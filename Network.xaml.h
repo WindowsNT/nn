@@ -35,6 +35,7 @@ namespace winrt::NN::implementation
         }
 
 
+        void TrainEnds();
         bool InputsVisible();
         bool CountVisible();
         bool OutputsVisible();
@@ -74,6 +75,8 @@ namespace winrt::NN::implementation
         void OnSaveAs(IInspectable, IInspectable);
         void OnTrainCPU(IInspectable, IInspectable);
         void OnTrainGPU(IInspectable, IInspectable);
+        void OnTestAGPU(IInspectable, IInspectable);
+        void OnTestACPU(IInspectable, IInspectable);
         void OnRTrainCPU(IInspectable, IInspectable);
         void OnRTrainGPU(IInspectable, IInspectable);
         void Train_Cancel(IInspectable, IInspectable);

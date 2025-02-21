@@ -100,6 +100,22 @@
                         <KeyboardAccelerator Key="F5"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="{x:Bind txt(29),Mode=OneTime}" Click="OnTestAGPU">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE968;"/>
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="T" Modifiers="Control"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="{x:Bind txt(30),Mode=OneTime}" Click="OnTestACPU">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE968;"/>
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="T" Modifiers="Control,Shift"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="{x:Bind txt(27),Mode=OneTime}" Click="OnRTrainCPU" >
                     <MenuFlyoutItem.Icon>

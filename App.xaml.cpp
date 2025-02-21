@@ -4,6 +4,7 @@
 
 using namespace winrt;
 using namespace winrt::Microsoft::UI::Xaml;
+using namespace winrt::Microsoft::UI::Xaml::Controls;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -39,7 +40,18 @@ LRESULT CALLBACK cbx(HWND hh, UINT mm, WPARAM ww, LPARAM ll)
         CallbackUpdate(ww, ll);
         return 0;
     }
+    if (mm == WM_USER + 2)
+    {
+        void TrainingEnds();
+        TrainingEnds();
+
+    }
     return CallWindowProc(wProc, hh, mm, ww, ll);
+}
+
+void PostTrainEnd()
+{
+    PostMessage(MainWindow, WM_USER + 2, 0, 0);
 }
 
 winrt::NN::MainWindow CreateWi()
