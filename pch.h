@@ -102,3 +102,4 @@ inline bool PutFile(const wchar_t* f, std::vector<T>& d, bool Fw = false)
 }
 
 #include "d2d.hpp"
+std::wstring TempFile3();

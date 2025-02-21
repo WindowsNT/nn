@@ -35,6 +35,13 @@
                         <KeyboardAccelerator Key="O" Modifiers="Control"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+                <MenuFlyoutItem Text="{x:Bind txt(24),Mode=OneTime}" Click="OnDataMNIST" >
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEA3B;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="{x:Bind txt(9),Mode=OneTime}" Click="OnSave" >
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE74E;"/>
@@ -71,15 +78,6 @@
 
                
      
-            </MenuBarItem>
-
-            <MenuBarItem Title="{x:Bind txt(23),Mode=OneTime}" >
-                <MenuFlyoutItem Text="{x:Bind txt(24),Mode=OneTime}" Click="OnDataMNIST" >
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xEA3B;"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
             </MenuBarItem>
 
             

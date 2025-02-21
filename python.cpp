@@ -3,7 +3,6 @@
 
 #pragma warning(disable:4100)
 
-std::wstring TempFile3();
 
 
 //

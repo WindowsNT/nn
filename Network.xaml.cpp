@@ -656,7 +656,7 @@ namespace winrt::NN::implementation
 
     void Network::OnDataMNIST(IInspectable, IInspectable)
     {
-        OPENFILENAME of = { 0 };
+/*        OPENFILENAME of = {0};
         of.lStructSize = sizeof(of);
         of.hwndOwner = (HWND)0;
         of.lpstrFilter = L"*.nn\0*.nn\0\0";
@@ -667,11 +667,15 @@ namespace winrt::NN::implementation
         of.Flags = OFN_PATHMUSTEXIST | OFN_OVERWRITEPROMPT;
         if (!GetSaveFileName(&of))
             return;
+            */
 
+        auto tf = TempFile3();
+        tf += L".nn";
         void mnist_test(const wchar_t* );
-        mnist_test(fnx.data());
-        void Locate(const wchar_t* fi);
-        Locate(fnx.data());
+        mnist_test(tf.c_str());
+        fil = tf.c_str();
+        LoadNetworkFile();
+        Refresh();
     }
 
 
