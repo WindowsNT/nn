@@ -58,6 +58,8 @@ namespace winrt::NN::implementation
     }
     void Network::IndexOfAct(long l)
     {
+        if (l < 0)
+            return;
         for (size_t i = 0; i < project.nn.Layers.size(); i++)
         {
             if (project.nn.Layers[i].Sel)
@@ -130,6 +132,8 @@ namespace winrt::NN::implementation
     }
     bool Network::CountVisible()
     {
+        if (project.nn.Layers.empty())
+            return 0;
         for (size_t i = 1; i < (project.nn.Layers.size() - 1); i++)
         {
             if (project.nn.Layers[i].Sel)
